@@ -1,0 +1,77 @@
+Latihan Project Viral 
+
+1. 
+	a. tidak terjadi compile error 
+	b. localhost:8080/viral menampilkan halaman error karena 
+		tidak ada file html yang termapping ke url tersebut 
+		karena sekarang viral.html termapping ke 
+		localhost:8080/viral2jari
+	c. kegunaan @RequestMapping("/viral") adalah untuk 
+		melakukan mapping file viral.html ke url 
+		localhost:8080/viral 
+		
+2. saya mengganti method index() menjadi method viral()
+	a. tidak terjadi error, hanya ada warning 
+	b. Mashook Pak Eko tetap terbuka, karena index hanya nama method yang 
+		bisa apapun tidak masalah 
+	
+3. mengganti string return type menjadi return "viral2jari"
+	a. tidak 
+	b. menampilkan halaman error karena tidak ada file viral2jari.html
+	c. return type pada method itu memilih url ini ingin menampilkan
+		file html yang mana 
+
+################################################
+		
+Latihan Request Parameter		
+
+1. Mengapa "In My Feeling" tidak muncul ? 
+	karena HTML template yang tertulis dalam Thymeleaf 
+	mengoverride html aslinya 
+	
+2. mengubah anotasi /challenge menjadi /viral/challenge
+	menghasilkan whilelabel error page
+	
+3. mengunjungi localhost:8080/challenge 
+	a. menghasilkan pesan error berikut 
+			"There was an unexpected error (type=Bad Request, status=400).
+			Required String parameter 'name' is not present"
+		karena parameter name tidak terisi 
+	b. mengubah methodnya , menambahkan required=false
+		menampilkan paragram berikut 
+			null do you love me?
+			Are you riding?
+		yang terjadi karena challenge.html tetap ditampilkan 
+		walaupun parameter name tidak terisi karena tidak required
+	c. mengubah methodnya, menambahkan defaultValue="kiki"
+		saat localhost:8080/challenge dibuka, menampilkan 
+			kiki do you love me?
+			Are you riding?
+		meskipun kita tidak mengisi parameter name, namun parameter
+		name akan otomatis terisi dengan value "kiki" jika tidak terisi 
+		
+##################################################	
+	
+Latihan Path Variable
+
+1. mengakses localhost:8080/challenge/
+	menampilkan 
+		kiki do you love me? 
+	karena sama saja dengan mengakses localhost:8080/challenge
+
+2. mengubah method challengePath, mengakses localhost:8080/challenge/
+	menampilkan
+		Ambiguous handler methods mapped for HTTP path 
+	karena ada dua method yang menerima mapping "/challenge"
+	yaitu method challenge dan challengePath , saya membuat method challenge menjadi commend
+	agar tidak ambigu 
+
+3. mengakses localhost:8080/challenge/kiki
+	menampilkan
+		kiki do you love me?
+
+##################################################		
+		
+Latihan 
+
+
